@@ -1,0 +1,46 @@
+!include rcic-package.yaml
+---
+- package: OpenCL headers and libraries
+  name: OpenCL 
+  pkgname: "{{name}}_{{version}}"
+  versions: !include versions.yaml
+#  compiler: gcc
+#  compiler_version: "{{versions.gcc}}"
+  version: "{{versions.OpenCL}}"
+  libs_distro: "OpenCL-ICD-Loader"
+  headers_distro: "OpenCL-Headers"
+  extension: zip
+  src_tarball: "{{libs_distro}}-master-{{version}}.{{extension}}"
+  src_dir: "{{libs_distro}}-master"
+  vendor_source: https://github.com/KhronosGroup/{{libs_distro}}/archive/master.zip
+  vendor_source2: https://github.com/KhronosGroup/{{headers_distro}}/archive/master.zip
+  addsource: 
+    - "{{headers_distro}}-master-{{version}}.{{extension}}"
+  description: |
+    Khronos OpenCL headers and OpenCL library, version {{version}}.
+    See https://www.khronos.org/registry/OpenCL/ for more info.
+  builddir: build
+  build:
+    configure: echo configure not used 
+    pkgmake: >
+      unzip ../{{addsource}};
+      mkdir {{builddir}};
+      /bin/cp -p -r {{headers_distro}}-master/CL inc/;
+      cd {{builddir}};
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
+      make
+    modules: 
+      - foundation
+    target:  
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT)/{{root}}/include;
+      /bin/cp -p -r {{headers_distro}}-master/CL $(ROOT)/{{root}}/include;
+      cd {{builddir}};
+      make DESTDIR=$(ROOT) install
+  rpm:
+    extras: >
+      %define __spec_install_post %{nil}
+
+# src for lib https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/master.zip
+# src for opencl headers wget https://github.com/KhronosGroup/OpenCL-Headers/archive/master.zip

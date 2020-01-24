@@ -1,0 +1,33 @@
+!include rcic-package.yaml
+---
+- package: computecpp
+  name: computecpp
+  distname: ComputeCpp-CE
+  suffix: CentOS-x86_64
+  versions: !include versions.yaml
+  version: "{{versions.computecpp}}"
+  vendor_source: 
+  guide: ComputeCPP-{{version}}-getting-started.pdf
+  addsource: 
+    - "{{guide}}"
+  pkgname: "{{name}}_{{version}}"
+  src_tarball: "{{src_dir}}.{{extension}}"
+  src_dir: "{{distname}}-{{version}}-{{suffix}}"
+  description: |
+    ComputeCpp Community Edition (CE) {{version}} is a heterogeneous 
+    parallel programming platform that provides a conformant 
+    implementation of SYCLTM 1.2.1 Khronos specification. The supported 
+    OpenCL 1.2 platforms for ComputeCpp are AMD and Intel. See guide
+    {{root}}/doc/{{guide}}
+  build:
+    configure: echo 
+    modules: 
+    pkgmake: 
+    target: 
+  install:
+     makeinstall: >
+       /usr/bin/mv * $(ROOT)/{{root}};
+       $(INSTALL) ../{{guide}} $(ROOT)/{{root}}/doc/
+  rpm:
+    extras: >
+      %define __spec_install_post %{nil}

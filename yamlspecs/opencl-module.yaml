@@ -1,0 +1,11 @@
+# Builds the module for OPenCL.
+!include opencl.yaml
+!include rcic-module.yaml
+---
+- package: OpenCL module 
+  category: LIBRARIES
+  module:
+    prepend_path:
+      - LD_LIBRARY_PATH "{{pkg_defaults.app_path}}/{{name}}/{{version}}/lib64"
+      - LDFLAGS "-L{{root}}/lib64"
+      - CPPFLAGS "-I{{root}}/include"
