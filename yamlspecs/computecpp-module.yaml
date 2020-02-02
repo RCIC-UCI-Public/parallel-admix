@@ -1,4 +1,4 @@
-# Builds the module for computecpp.
+# Builds the module for computecpp
 !include computecpp.yaml
 !include rcic-module.yaml
 ---
@@ -6,10 +6,10 @@
   category: TOOLS
   module:
     prepend_path:
-      - PATH "{{pkg_defaults.app_path}}/{{name}}/{{version}}/bin"
-      - LD_LIBRARY_PATH "{{pkg_defaults.app_path}}/{{name}}/{{version}}/lib"
-      - LDFLAGS "-L{{root}}/lib"
-      - CPPFLAGS "-I{{root}}/include"
+      - PATH "{{root}}/bin"
+      - LD_LIBRARY_PATH "{{root}}/lib"
+      - PKG_CONFIG_PATH "{{root}}/lib/pkgconfig"
+      - "{{mod_defaults.flags_path}}"
     prereq:
       - "OpenCL/{{versions.OpenCL}}"
   requires:
