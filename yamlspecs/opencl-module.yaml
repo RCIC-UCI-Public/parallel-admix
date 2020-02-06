@@ -8,4 +8,4 @@
     lib: lib64
     prepend_path:
       - LD_LIBRARY_PATH "{{root}}/{{module.lib}}"
-      - "{{mod_defaults.flags_path}}"
+      - "{{mod_defaults.flagspath}}"
