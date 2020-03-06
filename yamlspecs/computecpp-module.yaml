@@ -14,4 +14,5 @@
       - "OpenCL/{{versions.OpenCL}}"
   requires:
     - "OpenCL_{{versions.OpenCL}}-module"
+    - "{{name}}_{{version}}"
     - rcic-module-support
