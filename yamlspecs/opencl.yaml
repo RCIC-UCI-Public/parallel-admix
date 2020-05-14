@@ -2,10 +2,7 @@
 ---
 - package: OpenCL headers and libraries
   name: OpenCL 
-  pkgname: "{{name}}_{{version}}"
   versions: !include versions.yaml
-#  compiler: gcc
-#  compiler_version: "{{versions.gcc}}"
   version: "{{versions.OpenCL}}"
   libs_distro: "OpenCL-ICD-Loader"
   headers_distro: "OpenCL-Headers"

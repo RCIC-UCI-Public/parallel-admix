@@ -10,7 +10,6 @@
   guide: ComputeCPP-{{version}}-getting-started.pdf
   addsource: 
     - "{{guide}}"
-  pkgname: "{{name}}_{{version}}"
   src_tarball: "{{src_dir}}.{{extension}}"
   src_dir: "{{distname}}-{{version}}-{{suffix}}"
   description: |

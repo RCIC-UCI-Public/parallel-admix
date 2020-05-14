@@ -9,10 +9,9 @@
       - PATH "{{root}}/bin"
       - LD_LIBRARY_PATH "{{root}}/lib"
       - PKG_CONFIG_PATH "{{root}}/lib/pkgconfig"
-      - "{{mod_defaults.flagspath}}"
+      - *Flagspath
     prereq:
       - "OpenCL/{{versions.OpenCL}}"
-  requires:
-    - "OpenCL_{{versions.OpenCL}}-module"
-    - "{{name}}_{{version}}"
-    - rcic-module-support
+    requires:
+      - *Requires
+      - "OpenCL_{{versions.OpenCL}}-module"
