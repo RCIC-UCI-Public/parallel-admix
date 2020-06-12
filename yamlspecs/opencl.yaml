@@ -1,4 +1,5 @@
 !include rcic-package.yaml
+!include rpm.yaml
 ---
 - package: OpenCL headers and libraries
   name: OpenCL 
@@ -36,8 +37,7 @@
       cd {{builddir}};
       make DESTDIR=$(ROOT) install
   rpm:
-    extras: >
-      %define __spec_install_post %{nil}
+    extras: *RpmNone
 
 # src for lib https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/master.zip
 # src for opencl headers wget https://github.com/KhronosGroup/OpenCL-Headers/archive/master.zip
