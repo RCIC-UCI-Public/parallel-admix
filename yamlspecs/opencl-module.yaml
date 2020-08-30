@@ -4,6 +4,7 @@
 ---
 - package: OpenCL module 
   category: LIBRARIES
+  release: 2
   module:
     lib: lib64
     prepend_path:
