@@ -38,6 +38,3 @@
       make DESTDIR=$(ROOT) install
   rpm:
     extras: *RpmNone
-
-# src for lib https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/master.zip
-# src for opencl headers wget https://github.com/KhronosGroup/OpenCL-Headers/archive/master.zip
