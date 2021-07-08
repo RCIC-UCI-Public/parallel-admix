@@ -19,7 +19,6 @@
     See https://www.khronos.org/registry/OpenCL/ for more info.
   builddir: build
   build:
-    configure: echo configure not used 
     pkgmake: >
       unzip ../{{addsource}};
       mkdir {{builddir}};
@@ -29,7 +28,6 @@
       make
     modules: 
       - foundation
-    target:  
   install:
     makeinstall: >
       mkdir -p $(ROOT)/{{root}}/include;

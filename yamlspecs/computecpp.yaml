@@ -19,11 +19,6 @@
     implementation of SYCLTM 1.2.1 Khronos specification. The supported 
     OpenCL 1.2 platforms for ComputeCpp are AMD and Intel. See guide
     {{root}}/doc/{{guide}}
-  build:
-    configure: echo 
-    modules: 
-    pkgmake: 
-    target: 
   install:
      makeinstall: >
        /usr/bin/mv * $(ROOT)/{{root}};

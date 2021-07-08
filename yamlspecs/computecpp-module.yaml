@@ -1,4 +1,3 @@
-# Builds the module for computecpp
 !include computecpp.yaml
 !include rcic-module.yaml
 ---
@@ -13,6 +12,3 @@
       - *Flagspath
     prereq:
       - "OpenCL/{{versions.OpenCL}}"
-    requires:
-      - *Requires
-      - "{{module.prereq}}"
