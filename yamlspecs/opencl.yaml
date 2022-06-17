@@ -28,7 +28,7 @@
       cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
     modules: 
-      - foundation
+      - foundation/{{versions.site.foundation}}
     target:  
   install:
     makeinstall: >
