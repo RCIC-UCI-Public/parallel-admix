@@ -1,11 +1,11 @@
 ---
 system:
 bootstrap:
-  - opencl
-  - opencl-module
+# - opencl
+# - opencl-module
 build:
-  - computecpp
-  - computecpp-module
+# - computecpp
+# - computecpp-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
